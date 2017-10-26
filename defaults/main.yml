@@ -1,0 +1,10 @@
+---
+# defaults file for bitcoind
+bitcoind_home: '/opt/bitcoind'
+bitcoind_version: '0.15.0'
+bitcoind_long_version: '0.15.0.1'
+bitcoind_datadir: '{{ bitcoind_home }}/data'
+bitcoind_rpcuser: 'rpcuser'
+bitcoind_rpcpassword: 'rpcpassword'
+bitcoind_additional_params: ''
+bitcoind_user: 'nobody'

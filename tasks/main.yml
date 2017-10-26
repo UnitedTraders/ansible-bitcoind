@@ -1,0 +1,25 @@
+---
+# tasks file for bitcoind
+- name: create bitcoind user
+  user: name={{ bitcoind_user }}
+
+- name: create bitcoind data dir
+  file: state=directory path={{ item }} owner={{ bitcoind_user }} recurse=true
+  with_items:
+    - "{{ bitcoind_home }}"
+    - "{{ bitcoind_datadir }}"
+
+- name: unpack bitcoind archive
+  unarchive:
+    src: 'https://bitcoin.org/bin/bitcoin-core-{{ bitcoind_long_version }}/bitcoin-{{ bitcoind_long_version }}-x86_64-linux-gnu.tar.gz'
+    dest: "{{ bitcoind_home }}"
+    remote_src: yes  
+
+- name: copy systemd unit
+  template: src="bitcoind.service.j2" dest="/etc/systemd/system/bitcoind.service"
+  notify: systemctl daemon-reload
+
+- meta: flush_handlers
+
+- name: start the service
+  service: name=bitcoind enabled=yes state=started

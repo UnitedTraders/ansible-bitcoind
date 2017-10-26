@@ -1,0 +1,18 @@
+galaxy_info:
+  author: Anton Markelov <doublic@gmail.com>
+  description: Role for install official Bitcoin client
+  company: UT
+
+  license: MIT
+
+  min_ansible_version: 2.1
+
+  platforms:
+  - name: EL
+    versions:
+    - 7
+
+  galaxy_tags: []
+
+
+dependencies: []

@@ -1,0 +1,11 @@
+[Unit]
+Description=Official Bitcoin client implementation
+Requires=network.service
+
+[Service]
+WorkingDirectory={{ bitcoind_home }}
+ExecStart={{ bitcoind_home }}/bitcoin-{{ bitcoind_version }}/bin/bitcoind -server -datadir={{ bitcoind_datadir }} -rpcuser={{ bitcoind_rpcuser }} -rpcpassword={{ bitcoind_rpcpassword }} {{ bitcoind_additional_params }}
+User={{ bitcoind_user }}
+
+[Install]
+WantedBy=multi-user.target

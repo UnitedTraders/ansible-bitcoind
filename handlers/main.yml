@@ -1,0 +1,8 @@
+---
+# handlers file for bitcoind
+- name: restart bitcoind
+  service: name=bitcoind state=restarted
+
+- name: systemctl daemon-reload
+  command: systemctl daemon-reload
+  notify: restart bitcoind
