@@ -12,7 +12,8 @@ galaxy_info:
     versions:
     - 7
 
-  galaxy_tags: []
-
+  galaxy_tags: 
+    - bitcoin
+    - bitcoind
 
 dependencies: []
